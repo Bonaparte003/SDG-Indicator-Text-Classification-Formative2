@@ -30,7 +30,7 @@ Outputs:
 
 - `Devex_test_predictions_best.csv` — test predictions from best experiment
 - `results/experiments_summary.csv` — experiment comparison table
-- `results/experiment_comparison.png` — figure for report
+- Figures under `results/` (see [Results](#results) below)
 
 ---
 
@@ -76,15 +76,63 @@ Columns match the training format: `Unique ID`, `Type`, `Text`, `Label 1` … `L
 
 ---
 
-## Assignment deliverables checklist
+## Results
 
-- [ ] PDF report (`GroupName_Assignment2.pdf`) with repo + video links
-- [ ] GitHub repository (this repo)
-- [ ] 7–10 minute demo video (all members)
-- [ ] Group contribution tracker in report
+Figures are produced when you run the notebook (STEP 8–9 and evaluation cells). **Best model on validation:** Experiment 8 (LinearSVC + document Type prefix) — lowest Hamming loss (~0.052). See `results/experiments_summary.csv` for full metrics.
 
----
+### Experiment comparison
 
-## Team
+| Artifact | Description |
+|----------|-------------|
+| `results/experiments_summary.csv` | Hamming loss, F1, and config for all 10 experiments |
+| `results/experiment_comparison.png` | Bar chart comparing experiments (report figure) |
 
-Update with your group name and member contributions in the report.
+![Experiment comparison — Hamming loss and F1 across all runs](results/experiment_comparison.png)
+
+### Best model (Experiment 8)
+
+| Artifact | Description |
+|----------|-------------|
+| `results/best_model_per_label_metrics.csv` | Per-label precision, recall, F1 |
+| `results/best_model_per_label_f1.png` | F1 by label |
+| `results/best_model_confusion_matrices.png` | Confusion matrices for top labels |
+| `results/best_model_learning_curve.png` | Train vs validation loss by epoch |
+
+![Per-label F1 — best model](results/best_model_per_label_f1.png)
+
+![Confusion matrices — best model (top labels)](results/best_model_confusion_matrices.png)
+
+![Learning curve — best model](results/best_model_learning_curve.png)
+
+### Learning curves (all experiments)
+
+| Artifact | Description |
+|----------|-------------|
+| `results/experiment1_learning_curve.png` | Baseline (Exp 1) learning curve |
+| `results/learning_curves/all_experiments_overlay.png` | All runs on one plot |
+| `results/learning_curves/all_experiments_grid.png` | Small multiples per experiment |
+
+![Baseline learning curve — Experiment 1](results/experiment1_learning_curve.png)
+
+![All experiments — overlay](results/learning_curves/all_experiments_overlay.png)
+
+![All experiments — grid](results/learning_curves/all_experiments_grid.png)
+
+### Confusion matrices and F1 heatmap
+
+Top-6 labels by validation support, one figure per experiment (`results/confusion_matrices/`).
+
+![F1 heatmap — all experiments × labels](results/confusion_matrices/f1_heatmap_all_experiments.png)
+
+| Exp | Figure |
+|-----|--------|
+| 1 | ![Exp 1](results/confusion_matrices/exp_01.png) |
+| 2 | ![Exp 2](results/confusion_matrices/exp_02.png) |
+| 3 | ![Exp 3](results/confusion_matrices/exp_03.png) |
+| 4 | ![Exp 4](results/confusion_matrices/exp_04.png) |
+| 5 | ![Exp 5](results/confusion_matrices/exp_05.png) |
+| 6 | ![Exp 6](results/confusion_matrices/exp_06.png) |
+| 7 | ![Exp 7](results/confusion_matrices/exp_07.png) |
+| 8 | ![Exp 8](results/confusion_matrices/exp_08.png) |
+| 9 | ![Exp 9](results/confusion_matrices/exp_09.png) |
+| 10 | ![Exp 10](results/confusion_matrices/exp_10.png) |
